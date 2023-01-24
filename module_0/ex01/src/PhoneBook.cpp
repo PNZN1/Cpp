@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/22 13:12:28 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/01/24 14:01:06 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/01/24 14:49:43 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,7 @@ std::string	PhoneBook::_format_str(std::string str) const
 {
 	unsigned	sz;
 
-	if (str.empty())
-		return (str);
-	if (str.length() < 9)
+	if (str.empty() || str.length() < 9)
 		return (str);
 	sz = str.size();
 	str.resize(9);
