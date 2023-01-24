@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/22 11:34:30 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/01/24 13:30:26 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/01/24 14:16:59 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,5 @@ int	main(void)
 		if (!book.do_command(buf))
 			break ;
 	}
-	system("leaks ex_01");
 	return (0);
 }
