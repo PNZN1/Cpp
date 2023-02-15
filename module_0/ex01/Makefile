@@ -6,7 +6,7 @@
 #    By: pniezen <pniezen@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/01/17 12:41:57 by pniezen       #+#    #+#                  #
-#    Updated: 2023/01/22 14:10:57 by pniezen       ########   odam.nl          #
+#    Updated: 2023/01/25 09:08:55 by pniezen       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,14 +31,14 @@ CFLAGS += -I $(INCD)
 
 all: $(NAME)
 
+$(NAME): $(OBJP)
+	@echo "Compiling main executable"
+	@$(CC) $(CFLAGS) $(OBJP) -o $(NAME)
+
 $(OBJD)%.o: $(SRCD)%.cpp $(INCP)
 	@mkdir -p $(@D)
 	@echo "Compiling: $<"
 	@$(CC) $(CFLAGS) -c -o $@ $<
-
-$(NAME): $(OBJP)
-	@echo "Compiling main executable"
-	@$(CC) $(CFLAGS) $(OBJP) -o $(NAME)
 
 clean:
 	@rm -rf $(OBJD)
