@@ -6,7 +6,7 @@
 #    By: pniezen <pniezen@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/02/28 09:55:20 by pniezen       #+#    #+#                  #
-#    Updated: 2023/03/15 15:32:54 by pniezen       ########   odam.nl          #
+#    Updated: 2023/03/21 11:00:39 by pniezen       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,14 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 
 SRCD = src/
-SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp
+SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 SRCP = $(addprefix $(SRCD), $(SRC))
 
 OBJD = obj/
 OBJP = $(addprefix $(OBJD), $(SRC:.cpp=.o))
 
 INCD = include/
-INC = Animal.hpp Cat.hpp Dog.hpp
+INC = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
 INCP = $(addprefix $(INCD), $(INC))
 
 CFLAGS += -I $(INCD)
