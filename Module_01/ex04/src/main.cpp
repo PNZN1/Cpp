@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/25 16:01:31 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/02/25 17:44:37 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/03/29 08:35:07 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int main(int argc, char **argv)
 	std::string	s2;
 	std::string	line_str;
 
-	if ((argc == 1 || argc < 4) && !checkArgs(argv[1], argv[2], argv[2]))
+	if ((argc == 1 || argc < 4) || !checkArgs(argv[1], argv[2], argv[2]))
 	{
 		std::cerr << "Wrong arguments. Expected: ./sed <filename> <s1> <s2>" << std::endl;
 		return (1);
