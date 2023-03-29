@@ -1,44 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Animal.hpp                                         :+:    :+:            */
+/*   Cat.hpp                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/03/15 13:40:33 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/03/29 09:41:49 by pniezen       ########   odam.nl         */
+/*   Created: 2023/03/15 14:12:34 by pniezen       #+#    #+#                 */
+/*   Updated: 2023/03/29 09:33:44 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
-# include <iostream>
-# include <string>
-# include "Brain.hpp"
+#include "AAnimal.hpp"
+#include "Brain.hpp"
 
-class Animal
+class Cat : public AAnimal
 {
 	public:
 		// Constructors
-		Animal();
-		Animal(const Animal &copy);
-		Animal(std::string type);
+		Cat();
+		Cat(const Cat &copy);
+		Cat(std::string type);
 
 		// Destructor
-		virtual ~Animal();
+		~Cat();
 
 		// Operators
-		Animal & operator=(const Animal &assign);
+		Cat & operator=(const Cat &assign);
 
-		// Member functions
-		std::string		getType(void) const;
-		virtual void	makeSound(void) const;
+		// Member Functions
+		void	makeSound(void) const;
+		Brain	*getBrain(void) const;
 
-	protected:
-		std::string	type;
+	private:
+		Brain*	brain;
 };
 
-std::ostream & operator<<(std::ostream &out, const Animal &animal);
+std::ostream & operator<<(std::ostream &out, const Cat &cat);
 
 #endif

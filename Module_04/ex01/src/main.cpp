@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 11:09:25 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/03/21 14:45:35 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/03/29 15:32:13 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@
 int main()
 {
 	Animal*	animals[4];
+	int		nrAnimals = 4;
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < nrAnimals; i++)
 	{
 		if (i < 2)
 			animals[i] = new Cat();
@@ -26,13 +27,69 @@ int main()
 			animals[i] = new Dog();
 	}
 	std::cout << std::endl;
-	animals[0]->getBrain()->setIdea(0, "Wrinting code.");
-	std::cout << animals[0]->getBrain()->getIdea(0) << std::endl;
 
+	std::cout << "========= types =========" << std::endl;
+	for(int i = 0; i < nrAnimals; i++)
+		std::cout << animals[i]->getType() << std::endl;
 	std::cout << std::endl;
-	for (int j = 0; j < 4; j++)
-		delete animals[j];
 
+	std::cout << "========= sounds =========" << std::endl;
+	for(int i = 0; i < nrAnimals; i++)
+		animals[i]->makeSound();
+	std::cout << std::endl;
+
+	std::cout << "======== destruct =======" << std::endl;
+	for(int i = 0; i < nrAnimals; i++)
+	{
+		std::cout << "animal[" << i << "]:" <<std::endl;
+		delete animals[i];
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
+
+	std::cout << "====== dog copy test ====" << std::endl;
+	const Dog* firstDog = new Dog();
+	std::cout << std::endl;
+	//setting a thought to check if the value gets copied
+	firstDog->getBrain()->setIdea(0, "Dog wants play!");
+	std::cout << "firstDog: idea[0] = " << firstDog->getBrain()->getIdea(0) << std::endl;
+	std::cout << "firstDog: brain address = " << firstDog->getBrain() << std::endl << std::endl;
+	//copying the firstDog to copyDog
+	std::cout << "Deep copying the firstDog:" << std::endl;
+	const Dog* copyDog = new Dog(*firstDog);
+	std::cout << std::endl;
+	std::cout << "copyDog: idea[0] = " << copyDog->getBrain()->getIdea(0) << std::endl;
+	std::cout << "copyDog: brain address = " << copyDog->getBrain() << std::endl;
+
+	std::cout << "====== cat copy test ====" << std::endl;
+	const Cat* firstCat = new Cat();
+	std::cout << std::endl;
+	firstCat->getBrain()->setIdea(0, "Cat wants murder!");
+	std::cout	<< "firstCat: idea[0] = "
+				<< firstCat->getBrain()->getIdea(0)
+				<< std::endl
+				<< "firstCat: brain address = "
+				<< firstCat->getBrain()
+				<< std::endl << std::endl;
+	//copying the firstCat to copyCat
+	std::cout << "Deep copying the firstCat:" << std::endl;
+	const Cat* copyCat = new Cat(*firstCat);
+	std::cout << std::endl;
+	std::cout	<< "copyCat: idea[0] = "
+				<< copyCat->getBrain()->getIdea(0)
+				<< std::endl
+				<< "copyCat: brain address = "
+				<< copyCat->getBrain()
+				<< std::endl << std::endl;
+
+	std::cout << "======== destruct =======" << std::endl;
+	delete firstDog;
+	delete copyDog;
+	delete firstCat;
+	delete copyCat;
+	std::cout << std::endl;
+
+	std::cout << "======== leak check =======" << std::endl;
 	std::cout << std::endl;
 	system("leaks -q fire");
 	return (0);

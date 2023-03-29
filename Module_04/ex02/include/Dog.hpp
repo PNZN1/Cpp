@@ -1,44 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Animal.hpp                                         :+:    :+:            */
+/*   Dog.hpp                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/03/15 13:40:33 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/03/29 09:41:49 by pniezen       ########   odam.nl         */
+/*   Created: 2023/03/15 14:12:34 by pniezen       #+#    #+#                 */
+/*   Updated: 2023/03/29 09:33:50 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-# include <iostream>
-# include <string>
+# include "AAnimal.hpp"
 # include "Brain.hpp"
 
-class Animal
+class Dog : public AAnimal
 {
 	public:
 		// Constructors
-		Animal();
-		Animal(const Animal &copy);
-		Animal(std::string type);
+		Dog();
+		Dog(const Dog &copy);
+		Dog(std::string type);
 
 		// Destructor
-		virtual ~Animal();
+		~Dog();
 
 		// Operators
-		Animal & operator=(const Animal &assign);
+		Dog & operator=(const Dog &assign);
 
-		// Member functions
-		std::string		getType(void) const;
-		virtual void	makeSound(void) const;
+		// Member Functions
+		void	makeSound(void) const;
+		Brain	*getBrain(void) const;
 
-	protected:
-		std::string	type;
+	private:
+		Brain*	brain;
 };
 
-std::ostream & operator<<(std::ostream &out, const Animal &animal);
+std::ostream & operator<<(std::ostream &out, const Dog &dog);
 
 #endif

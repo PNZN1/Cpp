@@ -1,44 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Animal.hpp                                         :+:    :+:            */
+/*   Brain.hpp                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/03/15 13:40:33 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/03/29 09:41:49 by pniezen       ########   odam.nl         */
+/*   Created: 2023/03/21 11:12:23 by pniezen       #+#    #+#                 */
+/*   Updated: 2023/03/21 13:20:24 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 # include <iostream>
 # include <string>
-# include "Brain.hpp"
 
-class Animal
+class Brain
 {
 	public:
 		// Constructors
-		Animal();
-		Animal(const Animal &copy);
-		Animal(std::string type);
+		Brain();
+		Brain(const Brain &copy);
+		Brain(std::string type);
 
 		// Destructor
-		virtual ~Animal();
+		~Brain();
 
 		// Operators
-		Animal & operator=(const Animal &assign);
+		Brain & operator=(const Brain &assign);
 
-		// Member functions
-		std::string		getType(void) const;
-		virtual void	makeSound(void) const;
+		// Member Funcitons
+		std::string	getIdea(int index) const;
+		void	setIdea(int index, std::string idea);
 
-	protected:
-		std::string	type;
+	private:
+		std::string	ideas[100];
 };
-
-std::ostream & operator<<(std::ostream &out, const Animal &animal);
 
 #endif

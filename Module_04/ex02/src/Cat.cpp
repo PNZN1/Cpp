@@ -1,66 +1,67 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Dog.cpp                                            :+:    :+:            */
+/*   Cat.cpp                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/15 14:15:05 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/03/29 15:29:56 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/03/29 09:34:15 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Cat.hpp"
 
 // Constructors
-Dog::Dog() : Animal("Dog")
+Cat::Cat() : AAnimal("Cat")
 {
 	this->brain = new Brain();
-	std::cout << "Default Constructor called of Dog" << std::endl;
+	std::cout << "Default Constructor called of Cat" << std::endl;
 }
 
-Dog::Dog(const Dog &copy) : Animal("Dog")
+Cat::Cat(const Cat &copy) : AAnimal("Cat")
 {
-	std::cout << "Copy Constructor called of Dog" << std::endl;
 	*this = copy;
+
+	std::cout << "Copy Constructor called of Cat" << std::endl;
 }
 
-Dog::Dog(std::string type) : Animal(type)
+Cat::Cat(std::string type) : AAnimal(type)
 {
-	std::cout << "Parameter Constructor called of Dog" << std::endl;
+	std::cout << "Parameter Constructor called of Cat" << std::endl;
 }
 
 
 // Destructor
-Dog::~Dog()
+Cat::~Cat()
 {
 	delete this->brain;
-	std::cout << "Destructor called of Dog" << std::endl;
+	std::cout << "Destructor called of Cat" << std::endl;
 }
 
 
 // Operators
-Dog & Dog::operator=(const Dog &assign)
+Cat & Cat::operator=(const Cat &assign)
 {
-	std::cout << "Dog: assignment constructor called" << std::endl;
 	this->type = assign.getType();
 	this->brain = new Brain(*assign.getBrain());
 	return (*this);
 }
 
 // Member Functions
-void	Dog::makeSound(void) const
+void	Cat::makeSound(void) const
 {
-	std::cout << "Woof Woof!!" << std::endl;
+	std::cout << "Miauw Miauw!!" << std::endl;
 }
 
-Brain*	Dog::getBrain(void) const
+Brain*	Cat::getBrain(void) const
 {
 	return (this->brain);
 }
 
-std::ostream &operator<<(std::ostream &out, const Dog &dog)
+
+std::ostream &operator<<(std::ostream &out, const Cat &cat)
 {
-	out << dog.getType() << std::endl;
+	out << cat.getType() << std::endl;
 	return (out);
 }

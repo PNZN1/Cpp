@@ -1,44 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Animal.hpp                                         :+:    :+:            */
+/*   AAnimal.hpp                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/15 13:40:33 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/03/29 09:41:49 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/03/29 09:32:37 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef AANIMAL_HPP
+# define AANIMAL_HPP
 
 # include <iostream>
 # include <string>
 # include "Brain.hpp"
 
-class Animal
+class AAnimal
 {
 	public:
 		// Constructors
-		Animal();
-		Animal(const Animal &copy);
-		Animal(std::string type);
+		AAnimal();
+		AAnimal(const AAnimal &copy);
+		AAnimal(std::string type);
 
 		// Destructor
-		virtual ~Animal();
+		virtual ~AAnimal();
 
 		// Operators
-		Animal & operator=(const Animal &assign);
+		AAnimal & operator=(const AAnimal &assign);
 
 		// Member functions
-		std::string		getType(void) const;
+		std::string	getType(void) const;
 		virtual void	makeSound(void) const;
+		virtual Brain*	getBrain(void) const = 0;
 
 	protected:
 		std::string	type;
 };
 
-std::ostream & operator<<(std::ostream &out, const Animal &animal);
+std::ostream & operator<<(std::ostream &out, const AAnimal &aanimal);
 
 #endif

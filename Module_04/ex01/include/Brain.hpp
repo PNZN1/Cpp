@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 11:12:23 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/03/21 13:20:24 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/03/29 09:41:04 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class Brain
 		// Constructors
 		Brain();
 		Brain(const Brain &copy);
-		Brain(std::string type);
 
 		// Destructor
 		~Brain();
