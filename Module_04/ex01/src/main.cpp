@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 11:09:25 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/03/29 15:32:13 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/04/02 09:35:35 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int main()
 
 	for (int i = 0; i < nrAnimals; i++)
 	{
-		if (i < 2)
+		if (i % 2)
 			animals[i] = new Cat();
-		else if (i >= 2)
+		else
 			animals[i] = new Dog();
 	}
 	std::cout << std::endl;

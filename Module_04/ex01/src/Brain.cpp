@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 11:25:42 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/03/21 14:05:29 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/04/02 09:55:39 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,10 @@ Brain::~Brain()
 // Operators
 Brain & Brain::operator=(const Brain &assign)
 {
-	(void)assign;
+	std::cout << "Brain: assignment operator called" << std::endl;
+	int	nr_ideas = this->getNumIdeas();
+	for (int i = 0; i < nr_ideas; i++)
+		this->ideas[i] = assign.getIdea(i);
 	return (*this);
 }
 
@@ -44,15 +47,20 @@ Brain & Brain::operator=(const Brain &assign)
 std::string	Brain::getIdea(int index) const
 {
 	std::cout << "getIdea of brain is called." << std::endl;
-	if (index < 0 || index > 99)
-		return ("");
+	if (index < 0 || index >= this->getNumIdeas())
+		return (NULL);
 	return (this->ideas[index]);
 }
 
 void	Brain::setIdea(int index, std::string idea)
 {
 	std::cout << "setIdea of brain is called." << std::endl;
-	if (index < 0 || index > 99)
+	if (index < 0 || index >= this->getNumIdeas())
 		return ;
 	this->ideas[index] = idea;
+}
+
+int	Brain::getNumIdeas(void) const
+{
+	return ((int)(sizeof(this->ideas)/sizeof(std::string)));
 }

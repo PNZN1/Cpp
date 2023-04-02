@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 11:12:23 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/03/29 09:41:04 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/04/02 09:45:52 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class Brain
 		// Member Funcitons
 		std::string	getIdea(int index) const;
 		void	setIdea(int index, std::string idea);
+		int		getNumIdeas(void) const;
 
 	private:
 		std::string	ideas[100];
