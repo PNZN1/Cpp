@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/15 13:47:39 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/03/21 13:43:20 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/04/02 10:07:28 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,10 @@ Animal & Animal::operator=(const Animal &assign)
 }
 
 // Member Functions
-std::string	Animal::getType(void) const {return (this->type);}
+std::string	Animal::getType(void) const
+{
+	return (this->type);
+}
 
 void	Animal::makeSound(void) const
 {

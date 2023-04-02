@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/15 14:15:05 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/03/29 09:34:15 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/04/02 10:03:22 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ Cat::~Cat()
 // Operators
 Cat & Cat::operator=(const Cat &assign)
 {
+	std::cout << "Cat: assignment constructor called" << std::endl;
 	this->type = assign.getType();
 	this->brain = new Brain(*assign.getBrain());
 	return (*this);

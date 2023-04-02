@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 11:09:25 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/04/02 09:35:35 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/04/02 10:11:47 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,17 @@ int main()
 	std::cout << std::endl;
 
 	std::cout << "========= types =========" << std::endl;
-	for(int i = 0; i < nrAnimals; i++)
+	for (int i = 0; i < nrAnimals; i++)
 		std::cout << animals[i]->getType() << std::endl;
 	std::cout << std::endl;
 
 	std::cout << "========= sounds =========" << std::endl;
-	for(int i = 0; i < nrAnimals; i++)
+	for (int i = 0; i < nrAnimals; i++)
 		animals[i]->makeSound();
 	std::cout << std::endl;
 
 	std::cout << "======== destruct =======" << std::endl;
-	for(int i = 0; i < nrAnimals; i++)
+	for (int i = 0; i < nrAnimals; i++)
 	{
 		std::cout << "animal[" << i << "]:" <<std::endl;
 		delete animals[i];

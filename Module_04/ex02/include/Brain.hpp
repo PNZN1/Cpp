@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 11:12:23 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/03/21 13:20:24 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/04/02 09:58:59 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class Brain
 		// Constructors
 		Brain();
 		Brain(const Brain &copy);
-		Brain(std::string type);
 
 		// Destructor
 		~Brain();
@@ -33,6 +32,7 @@ class Brain
 		// Member Funcitons
 		std::string	getIdea(int index) const;
 		void	setIdea(int index, std::string idea);
+		int		getNumIdeas(void) const;
 
 	private:
 		std::string	ideas[100];

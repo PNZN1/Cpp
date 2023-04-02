@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/15 14:15:05 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/03/29 09:34:19 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/04/02 10:02:44 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,9 @@ Dog::~Dog()
 // Operators
 Dog & Dog::operator=(const Dog &assign)
 {
+	std::cout << "Dog: assignment constructor called" << std::endl;
 	this->type = assign.getType();
+	this->brain = new Brain(*assign.getBrain());
 	return (*this);
 }
 

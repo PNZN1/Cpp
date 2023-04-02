@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/15 13:40:33 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/03/29 09:32:37 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/04/02 10:05:38 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ class AAnimal
 
 		// Member functions
 		std::string	getType(void) const;
-		virtual void	makeSound(void) const;
-		virtual Brain*	getBrain(void) const = 0;
+		virtual void	makeSound(void) const = 0;
 
 	protected:
 		std::string	type;
