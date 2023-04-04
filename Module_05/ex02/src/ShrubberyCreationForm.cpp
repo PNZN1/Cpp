@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/04 09:29:25 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/04/04 12:44:02 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/04/04 13:24:36 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 		if (executor.getGrade() > this->getExecGrade())
 			throw(GradeTooLowException());
 		if (!this->getSigned())
-			throw(ShrubberyCreationFormNotSigned());
-		std::cout << this->getName() << " executed " << executor.getName() << std::endl;
+			throw(FormNotSigned());
 
 		std::ofstream	file(this->mTarget + "_shrubbery");
 
@@ -90,7 +89,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	{
 		std::cout << this->getName() << " couldn’t execute " << executor.getName() << " because " << e.what() << std::endl;
 	}
-	catch(const ShrubberyCreationFormNotSigned& e)
+	catch(const FormNotSigned& e)
 	{
 		std::cout << this->getName() << " couldn’t execute " << executor.getName() << " because " << e.what() << std::endl;
 	}
@@ -102,11 +101,6 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 
 
 // Exceptions
-const char	*ShrubberyCreationForm::ShrubberyCreationFormNotSigned::what() const throw()
-{
-	return ("Shrubbery Creation Form not signed.");
-}
-
 const char	*ShrubberyCreationForm::FileCreationError::what() const throw()
 {
 	return ("Could not sign form due to some uncommon error.");

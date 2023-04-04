@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/03 08:13:19 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/04/04 11:50:14 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/04/04 13:25:22 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,8 @@ void	Bureaucrat::signForm(AForm &f)
 
 void	Bureaucrat::executeForm(AForm const & f)
 {
-	return (f.execute(*this));
+	f.execute(*this);
+	std::cout << f.getName() << " executed " << this->mName << std::endl;
 }
 
 

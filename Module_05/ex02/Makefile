@@ -6,11 +6,11 @@
 #    By: pniezen <pniezen@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/04/03 08:04:19 by pniezen       #+#    #+#                  #
-#    Updated: 2023/04/04 11:53:39 by pniezen       ########   odam.nl          #
+#    Updated: 2023/04/04 13:36:01 by pniezen       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = shrub
+NAME = aform
 ASCII_FILES = *_shrubbery
 
 CC = c++
@@ -18,14 +18,14 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 
 SRCD = src/
-SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp
+SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp
 SRCP = $(addprefix $(SRCD), $(SRC))
 
 OBJD = obj/
 OBJP = $(addprefix $(OBJD), $(SRC:.cpp=.o))
 
 INCD = include/
-INC = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp
+INC = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp
 INCP = $(addprefix $(INCD), $(INC))
 
 CFLAGS += -I $(INCD)

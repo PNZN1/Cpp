@@ -102,6 +102,11 @@ const char	*AForm::GradeTooLowException::what() const throw()
 	return ("Grade to low.");
 }
 
+const char	*AForm::FormNotSigned::what() const throw()
+{
+	return ("Form not signed.");
+}
+
 
 // Insertion overload
 std::ostream &operator<<(std::ostream &out, const AForm &f)
