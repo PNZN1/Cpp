@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/04 09:29:25 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/04/04 11:51:24 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/04/04 12:44:02 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,18 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 		if (!file)
 			throw(FileCreationError());
 
-		file << "|     .-." << std::endl;
-		file << "|    /   \\         .-." << std::endl;
-		file << "|   /     \\       /   \\       .-.     .-.     _   _" << std::endl;
-		file << "+--/-------\\-----/-----\\-----/---\\---/---\\---/-\\-/-\\/\\/---" << std::endl;
-		file << "| /         \\   /       \\   /     '-'     '-'" << std::endl;
-		file << "|/           '-'         '-'" << std::endl;
+		file << "        ,.," << std::endl;
+		file << "       MMMM_    ,..,        .-." << std::endl;
+		file << "         \"_ \"__\"MMMMM          ,...,," << std::endl;
+		file << "MMMMMM\"___ \"_._   MMM\"_.\"\" _ \"\"\"\"\"\"" << std::endl;
+		file << "  \"\"\"\"\"    \"\" , \\_.   \"_. .\"" << std::endl;
+		file << "         ,., _\"__ \\__./ .\"" << std::endl;
+		file << "        MMMMM_\"  \"_    ./" << std::endl;
+		file << "         ''''      (    )" << std::endl;
+		file << "  ._______________.-'____\"---._." << std::endl;
+		file << "   \\                          /" << std::endl;
+		file << "    \\________________________/" << std::endl;
+		file << "    (_)                    (_)" << std::endl;
 
 		file.close();
 	}
