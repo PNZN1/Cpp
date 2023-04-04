@@ -1,43 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Form.cpp                                           :+:    :+:            */
+/*   AForm.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/03 13:58:28 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/04/04 11:13:49 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/04/04 08:54:56 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 // Constructors
-Form::Form() :
-	mName("Form"),
+AForm::AForm() :
+	mName("blanc"),
 	mSigned(false),
 	mSignGrade(150),
 	mExecGrade(150)
 {
-	std::cout << "Default Constructor called of Form " << this->mName << std::endl;
+	std::cout << "Default Constructor called of AForm " << this->mName << std::endl;
 }
 
-Form::Form(const Form &copy):
+AForm::AForm(const AForm &copy):
 	mName(copy.getName()),
 	mSigned(copy.getSigned()),
 	mSignGrade(copy.getSignGrade()),
 	mExecGrade(copy.getExecGrade())
 {
-	std::cout << "Copy Constructor called Form " << this->mName << std::endl;
+	std::cout << "Copy Constructor called AForm " << this->mName << std::endl;
 }
 
-Form::Form(const std::string name, const int signGrade, const int execGrade) :
+AForm::AForm(const std::string name, const int signGrade, const int execGrade) :
 	mName(name),
 	mSigned(false),
 	mSignGrade(signGrade),
 	mExecGrade(execGrade)
 {
-	std::cout << "Parameter Constructor called of Form " << this->mName << std::endl;
+	std::cout << "Parameter Constructor called of AForm " << this->mName << std::endl;
 
 	if (this->mSignGrade < 1 || this->mExecGrade < 1)
 		throw(GradeTooHighException());
@@ -46,14 +46,14 @@ Form::Form(const std::string name, const int signGrade, const int execGrade) :
 }
 
 // Destructor
-Form::~Form()
+AForm::~AForm()
 {
-	std::cout << "Destructor called of Form " << this->mName << std::endl;
+	std::cout << "Destructor called of AForm " << this->mName << std::endl;
 }
 
 
 // Operators
-Form & Form::operator=(const Form &assign)
+AForm & AForm::operator=(const AForm &assign)
 {
 	this->mSigned = assign.getSigned();
 	return (*this);
@@ -61,27 +61,27 @@ Form & Form::operator=(const Form &assign)
 
 
 // Member functions
-std::string	Form::getName(void) const
+std::string	AForm::getName(void) const
 {
 	return (this->mName);
 }
 
-bool	Form::getSigned(void) const
+bool	AForm::getSigned(void) const
 {
 	return (this->mSigned);
 }
 
-int	Form::getSignGrade(void) const
+int	AForm::getSignGrade(void) const
 {
 	return (this->mSignGrade);
 }
 
-int	Form::getExecGrade(void) const
+int	AForm::getExecGrade(void) const
 {
 	return (this->mExecGrade);
 }
 
-void	Form::beSigned(const Bureaucrat &b)
+void	AForm::beSigned(const Bureaucrat &b)
 {
 	if (b.getGrade() > this->mSignGrade)
 		throw(GradeTooLowException());
@@ -92,19 +92,19 @@ void	Form::beSigned(const Bureaucrat &b)
 
 
 // Exceptions
-const char	*Form::GradeTooHighException::what() const throw()
+const char	*AForm::GradeTooHighException::what() const throw()
 {
 	return ("Grade to high.");
 }
 
-const char	*Form::GradeTooLowException::what() const throw()
+const char	*AForm::GradeTooLowException::what() const throw()
 {
 	return ("Grade to low.");
 }
 
 
 // Insertion overload
-std::ostream &operator<<(std::ostream &out, const Form &f)
+std::ostream &operator<<(std::ostream &out, const AForm &f)
 {
 	out << "-       Form: " << f.getName() << std::endl;
 	out << "- Sign Grade: " << f.getSignGrade() << std::endl;
