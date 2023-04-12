@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/04 12:55:09 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/04/12 10:24:17 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/04/12 10:57:35 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) :
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) :
-	AForm("Robotomy Request Form", 72, 45),
+	AForm(target, 72, 45),
 	mTarget(target)
 {
 	std::cout << "Parameter Constructor called of RobotomyRequestForm " << this->mTarget << std::endl;

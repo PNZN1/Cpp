@@ -6,12 +6,13 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/03 08:04:45 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/04/12 10:32:25 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/04/12 10:59:03 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
@@ -27,6 +28,7 @@ int	main()
 			Intern	someRandomIntern;
 
 			AForm	*someForm = someRandomIntern.makeForm("shrubbery creation form", "Some Shrubbery Form");
+			std::cout << std::endl << *someForm;
 
 			std::cout << std::endl << "---- DESTRUCTOR ----" << std::endl;
 			delete someForm;
@@ -48,6 +50,7 @@ int	main()
 			Intern	someRandomIntern;
 
 			AForm	*someForm = someRandomIntern.makeForm("robotomy request form", "Some Request Form");
+			std::cout << std::endl << *someForm;
 
 			std::cout << std::endl << "---- DESTRUCTOR ----" << std::endl;
 			delete someForm;
@@ -69,6 +72,7 @@ int	main()
 			Intern	someRandomIntern;
 
 			AForm	*someForm = someRandomIntern.makeForm("presidential pardon form", "Some Pardon Form");
+			std::cout << std::endl << *someForm;
 
 			std::cout << std::endl << "---- DESTRUCTOR ----" << std::endl;
 			delete someForm;
@@ -90,6 +94,7 @@ int	main()
 			Intern	someRandomIntern;
 
 			AForm	*someForm = someRandomIntern.makeForm("wrong form", "Some Wrong Form");
+			std::cout << std::endl << *someForm;
 
 			std::cout << std::endl << "---- DESTRUCTOR ----" << std::endl;
 			delete someForm;

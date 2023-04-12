@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/04 16:06:39 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/04/12 10:24:09 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/04/12 10:57:40 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &cop
 }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target) :
-	AForm("Presidential Pardon Form", 25, 5),
+	AForm(target, 25, 5),
 	mTarget(target)
 {
 	std::cout << "Parameter Constructor called of PresidentialPardonForm " << this->mTarget << std::endl;

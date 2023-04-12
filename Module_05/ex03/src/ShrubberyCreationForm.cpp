@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/04 09:29:25 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/04/12 10:24:27 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/04/12 10:56:21 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) 
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) :
-	AForm("Shrubbery Creation Form", 145, 137),
+	AForm(target, 145, 137),
 	mTarget(target)
 {
 	std::cout << "Parameter Constructor called of ShrubberyCreationForm " << this->mTarget << std::endl;

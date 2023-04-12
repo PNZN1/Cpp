@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/03 08:04:45 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/04/04 16:15:11 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/04/12 11:01:23 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	main()
 	}
 
 	{
+		std::cout << std::endl;
 		std::cout << "========== CASE 2 ==========" << std::endl << std::endl;
 		std::cout << "----- CREATING BUREAUCRAT GRADE 1 -----" << std::endl;
 
@@ -71,6 +72,7 @@ int	main()
 	}
 
 	{
+		std::cout << std::endl;
 		std::cout << "========== CASE 3 ==========" << std::endl << std::endl;
 		std::cout << "----- CREATING BUREAUCRAT GRADE 1 -----" << std::endl;
 
