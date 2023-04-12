@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/03 08:13:19 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/04/12 10:23:25 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/04/12 10:23:59 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,19 +78,28 @@ void	Bureaucrat::decrement(void)
 	this->mGrade++;
 }
 
-void	Bureaucrat::signForm(Form &f)
+void	Bureaucrat::signForm(AForm &f)
 {
 	try
 	{
 		f.beSigned(*this);
 		std::cout << this->mName << " signed " << f.getName() << std::endl;
 	}
-	catch(const std::exception& e)
+	catch(const GradeTooHighException& e)
+	{
+		std::cerr << this->mName << " couldn’t sign " << f.getName() << " because " << e.what() << std::endl;
+	}
+	catch(const GradeTooLowException& e)
 	{
 		std::cerr << this->mName << " couldn’t sign " << f.getName() << " because " << e.what() << std::endl;
 	}
 }
 
+void	Bureaucrat::executeForm(AForm const & f)
+{
+	f.execute(*this);
+	std::cout << f.getName() << " executed " << this->mName << std::endl;
+}
 
 
 // Exceptions

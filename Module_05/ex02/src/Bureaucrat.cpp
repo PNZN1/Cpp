@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/03 08:13:19 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/04/04 13:25:22 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/04/12 10:23:30 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,11 @@ void	Bureaucrat::signForm(AForm &f)
 	}
 	catch(const GradeTooHighException& e)
 	{
-		std::cout << this->mName << " couldn’t sign " << f.getName() << " because " << e.what() << std::endl;
+		std::cerr << this->mName << " couldn’t sign " << f.getName() << " because " << e.what() << std::endl;
 	}
 	catch(const GradeTooLowException& e)
 	{
-		std::cout << this->mName << " couldn’t sign " << f.getName() << " because " << e.what() << std::endl;
+		std::cerr << this->mName << " couldn’t sign " << f.getName() << " because " << e.what() << std::endl;
 	}
 }
 
