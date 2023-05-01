@@ -6,11 +6,11 @@
 #    By: pniezen <pniezen@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/04/03 08:04:19 by pniezen       #+#    #+#                  #
-#    Updated: 2023/04/24 14:56:23 by pniezen       ########   odam.nl          #
+#    Updated: 2023/05/01 10:08:59 by pniezen       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = convert
+NAME = ser
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
@@ -24,7 +24,7 @@ OBJD = obj/
 OBJP = $(addprefix $(OBJD), $(SRC:.cpp=.o))
 
 INCD = include/
-INC = Serializer.hpp
+INC = Serializer.hpp Data.hpp
 INCP = $(addprefix $(INCD), $(INC))
 
 CFLAGS += -I $(INCD)

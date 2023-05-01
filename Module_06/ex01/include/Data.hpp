@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Serializer.hpp                                     :+:    :+:            */
+/*   Data.hpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/04/24 14:56:32 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/05/01 10:19:35 by pniezen       ########   odam.nl         */
+/*   Created: 2023/05/01 09:58:55 by pniezen       #+#    #+#                 */
+/*   Updated: 2023/05/01 10:08:44 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-# define SERIALIZER_HPP
+#ifndef DATA_HPP
+# define DATA_HPP
 
-# include "Data.hpp"
+# include <string>
 
-class Serializer
+typedef struct Data
 {
-	private:
-		// Constructors
-		Serializer();
-		Serializer(const Serializer &copy);
-
-		// Destructor
-		~Serializer();
-
-		// Operators
-		Serializer & operator=(const Serializer &assign);
-
-	public:
-		static uintptr_t	serialize(Data* ptr);
-		static Data		*deserialize(uintptr_t raw);
-};
+	std::string	str;
+	int			num;
+}	tData;
 
 #endif
