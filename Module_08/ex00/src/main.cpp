@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/01 15:39:52 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/05/01 16:44:45 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/05/01 17:46:39 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(void)
 
 	try
 	{
-		std::cout << "found: " << *easyfind(intVector, 3) << std::endl;
+		std::cout << "found: " << *easyfind(intVector, 9) << std::endl;
 		std::cout << "found: " << *easyfind(intVector, 30) << std::endl;
 	}
 	catch(const std::exception& e)
