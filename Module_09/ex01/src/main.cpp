@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/15 14:09:51 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/05/15 15:11:44 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/05/15 15:56:26 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,5 @@ try
 	{
 		std::cerr << e.what() << std::endl;
 	}
+	return (0);
 }
