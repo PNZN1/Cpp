@@ -6,25 +6,25 @@
 #    By: pniezen <pniezen@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/04/03 08:04:19 by pniezen       #+#    #+#                  #
-#    Updated: 2023/05/17 11:22:24 by pniezen       ########   odam.nl          #
+#    Updated: 2023/05/15 17:01:07 by pniezen       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = RPN
+NAME = PmergeMe
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 
 SRCD = src/
-SRC = main.cpp RPN.cpp
+SRC = main.cpp PmergeMe.cpp
 SRCP = $(addprefix $(SRCD), $(SRC))
 
 OBJD = obj/
 OBJP = $(addprefix $(OBJD), $(SRC:.cpp=.o))
 
 INCD = include/
-INC = RPN.hpp
+INC = PmergeMe.hpp
 INCP = $(addprefix $(INCD), $(INC))
 
 CFLAGS += -I $(INCD)

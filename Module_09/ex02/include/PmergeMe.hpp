@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   RPN.hpp                                            :+:    :+:            */
+/*   PmergeMe.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/05/15 14:17:44 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/05/17 11:24:57 by pniezen       ########   odam.nl         */
+/*   Created: 2023/05/15 17:01:48 by pniezen       #+#    #+#                 */
+/*   Updated: 2023/05/15 17:44:10 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RPN_HPP
-# define RPN_HPP
+#ifndef PMERGEME_HPP
+# define PMERGEME_HPP
 
 # include <list>
+# include <vector>
 
-class RPN
+class PmergeMe
 {
 	private:
-		std::list<int>	_numbers;
-
-		int	getIndex(size_t i);
+		std::list<int>		_intList;
+		std::vector<int>	_intVector;
 
 	public:
 		// Constructors
-		RPN();
-		RPN(const RPN &copy);
-		RPN & operator=(const RPN &assign);
+		PmergeMe();
+		PmergeMe(const PmergeMe &copy);
+		PmergeMe & operator=(const PemergeMe &assign);
 		// Destructor
-		~RPN();
+		~PmergeMe();
 
-		void	pushNumber(int num);
-		void	operation(char c);
-		int		getResult() const;
+		void	vectorInsertionSort(std::vector<int> v, int n);
+		void	vectorMergeSort();
 };
-
-// Insertion overload
-std::ostream &operator<<(std::ostream &out, const RPN &rpn);
 
 #endif
