@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/15 17:01:48 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/05/17 16:39:41 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/05/18 15:33:33 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,40 @@
 # include <deque>
 # include <vector>
 # include <string>
+# include <ctime>
 
 class PmergeMe
 {
 	private:
+		PmergeMe(); // Not implemented, must have values;
+
 		std::deque<int>		_intDeque;
 		std::vector<int>	_intVector;
 
 		void	parseArgs(char **argv);
 		int		convertToInt(char *arg);
+
+		clock_t	sortDeque(int low, int high);
 		void	mergeSortDeque(int low, int mid, int high);
-		void	insertionsortDeque(int low, int high);
+		void	insertionSortDeque(int low, int high);
+
+		clock_t	sortVector(int low, int high);
+		void	mergeSortVector(int low, int mid, int high);
+		void	insertionSortVector(int low, int high);
+
+		void	printBefore();
+		void	printAfter(std::string collection, clock_t duration);
 
 	public:
 		// Constructors
-		PmergeMe();
 		PmergeMe(char **argv);
 		PmergeMe(const PmergeMe &copy);
 		PmergeMe & operator=(const PmergeMe &assign);
 		// Destructor
 		~PmergeMe();
 
-		int		getDequeSize();
-		void	sortDeque(int low, int high);
-		void	printBefore();
-		void	printAfter();
+		int		getDequeSize() const;
+		void	sort(int low, int high);
 };
 
 #endif

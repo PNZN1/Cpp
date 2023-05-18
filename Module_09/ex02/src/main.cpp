@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/17 12:28:30 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/05/17 16:39:46 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/05/18 14:47:44 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,6 @@ int	main(int argc, char **argv)
 
 	PmergeMe	sortMe(argv);
 
-	sortMe.printBefore();
-	sortMe.sortDeque(0, sortMe.getDequeSize() - 1);
-
-	sortMe.printAfter();
+	sortMe.sort(0, sortMe.getDequeSize() - 1);
 	return (0);
 }

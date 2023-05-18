@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/15 17:05:36 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/05/17 16:44:35 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/05/18 15:53:49 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,33 +42,42 @@ PmergeMe::~PmergeMe() {};
 
 
 // Public functions
-int	PmergeMe::getDequeSize()
+int	PmergeMe::getDequeSize() const
 {
 	return (static_cast<int>(this->_intDeque.size()));
 }
 
-void	PmergeMe::sortDeque(int low, int high)
+void	PmergeMe::sort(int low, int high)
 {
-	static int round;
+	clock_t dequeDuration = this->sortDeque(low, high);
+	clock_t vectorDuration = this->sortVector(low, high);
+
+	std::cout << "After:\t";
+	for (size_t i = 0; i < this->_intDeque.size(); i++)
+		std::cout << this->_intDeque[i] << " ";
+	std::cout << std::endl;
+
+	this->printAfter("deque", dequeDuration);
+	this->printAfter("vector", vectorDuration);
+}
+
+clock_t	PmergeMe::sortDeque(int low, int high)
+{
+	const clock_t	start = clock();
 	int	mid;
 
-	// std::cout << "[" << round << "] " << low << " " << high << " " << high - low << std::endl;
-	std::cout << "round[" << round << "] " << low << " " << high << std::endl;
 	// if (low < high)
 	if (high - low > 5)
 	{
-		std::cout << "\tMerge sort" << std::endl;
 		mid = (low + high) / 2;
 		this->sortDeque(low, mid);
 		this->sortDeque(mid + 1, high);
 		this->mergeSortDeque(low, mid, high);
 	}
 	else
-	{
-		std::cout << "\tInsertion sort" << std::endl;
-		this->insertionsortDeque(low, high);
-	}
-	round++;
+		this->insertionSortDeque(low, high);
+
+	return (clock() - start);
 }
 
 void	PmergeMe::mergeSortDeque(int low, int mid, int high)
@@ -94,7 +103,7 @@ void	PmergeMe::mergeSortDeque(int low, int mid, int high)
 		this->_intDeque[i] = temp[i];
 }
 
-void	PmergeMe::insertionsortDeque(int low, int high)
+void	PmergeMe::insertionSortDeque(int low, int high)
 {
 	for (int i = low; i < high; i++)
 	{
@@ -110,21 +119,81 @@ void	PmergeMe::insertionsortDeque(int low, int high)
 }
 
 
+clock_t	PmergeMe::sortVector(int low, int high)
+{
+	const clock_t	start = clock();
+	int	mid;
+
+	// if (low < high)
+	if (high - low > 5)
+	{
+		mid = (low + high) / 2;
+		this->sortVector(low, mid);
+		this->sortVector(mid + 1, high);
+		this->mergeSortVector(low, mid, high);
+	}
+	else
+		this->insertionSortVector(low, high);
+
+	return (clock() - start);
+}
+
+void	PmergeMe::mergeSortVector(int low, int mid, int high)
+{
+	int	i = low;
+	int	k = low;
+	int	j = mid + 1;
+	int	temp[high];
+
+	while (i <= mid && j <= high)
+	{
+		if (this->_intVector[i] < this->_intVector[j])
+			temp[k++] = this->_intVector[i++];
+		else
+			temp[k++] = this->_intVector[j++];
+	}
+	while (i <= mid)
+		temp[k++] = this->_intVector[i++];
+	while (j <= high)
+		temp[k++] = this->_intVector[j++];
+
+	for (i = low; i < k; i++)
+		this->_intVector[i] = temp[i];
+}
+
+void	PmergeMe::insertionSortVector(int low, int high)
+{
+	for (int i = low; i < high; i++)
+	{
+		int	temp = this->_intVector[i + 1];
+		int	j = i + 1;
+		while (j > low && this->_intVector[j - 1] > temp)
+		{
+			this->_intVector[j] = this->_intVector[j - 1];
+			j--;
+		}
+		this->_intVector[j] = temp;
+	}
+}
+
+
 // Others
 void	PmergeMe::printBefore()
 {
-	std::cout << "-- BEFORE --" << std::endl;
+	std::cout << "Before:\t";
 	for (size_t i = 0; i < this->_intDeque.size(); i++)
 		std::cout << this->_intDeque[i] << " ";
 	std::cout << std::endl;
 }
 
-void	PmergeMe::printAfter()
+void	PmergeMe::printAfter(std::string collection, clock_t duration)
 {
-	std::cout << "-- AFTER --" << std::endl;
-	for (size_t i = 0; i < this->_intDeque.size(); i++)
-		std::cout << this->_intDeque[i] << " ";
-	std::cout << std::endl;
+	static const long	CLOCKS_PER_MS = CLOCKS_PER_SEC / 1000;
+	static const long	CLOCKS_PER_US = CLOCKS_PER_MS / 1000;
+	const clock_t us = duration / CLOCKS_PER_US;
+
+	std::cout << "Time to process a range of " << this->_intDeque.size() << " elements with std::"
+		<< collection << "\t: " << us << " µs!" << std::endl;
 }
 
 
@@ -150,7 +219,7 @@ void	PmergeMe::parseArgs(char **argv)
 			throw(std::invalid_argument("Number must be in the range of 0 to 2147483647"));
 
 		this->_intDeque.push_back(static_cast<int>(num));
-		// this->_intVector.push_back(static_cast<int>(num));
+		this->_intVector.push_back(static_cast<int>(num));
 		i++;
 	}
 }
