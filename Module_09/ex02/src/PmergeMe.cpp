@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/15 17:05:36 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/05/23 10:21:49 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/05/23 10:29:01 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,23 +220,4 @@ void	PmergeMe::parseArgs(char **argv)
 		this->_intVector.push_back(static_cast<int>(num));
 		i++;
 	}
-}
-
-int	PmergeMe::convertToInt(char *arg)
-{
-	long	number;
-	for (int i = 0; arg[i]; i++)
-	{
-		if (!std::isdigit(arg[i]))
-			throw(std::invalid_argument("Not a number"));
-		else if ((arg[i] - 48) > 10)
-			throw(std::invalid_argument("Number must be a positive number"));
-	}
-
-	std::stringstream	ss(arg);
-	ss >> number;
-
-	if (number > std::numeric_limits<int>::max())
-		throw(std::invalid_argument("Number must be in the range of 0 to 2147483647"));
-	return (static_cast<int>(number));
 }

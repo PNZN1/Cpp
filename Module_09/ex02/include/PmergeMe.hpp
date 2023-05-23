@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/15 17:01:48 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/05/18 15:33:33 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/05/23 10:29:05 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ class PmergeMe
 		std::vector<int>	_intVector;
 
 		void	parseArgs(char **argv);
-		int		convertToInt(char *arg);
 
 		clock_t	sortDeque(int low, int high);
 		void	mergeSortDeque(int low, int mid, int high);
