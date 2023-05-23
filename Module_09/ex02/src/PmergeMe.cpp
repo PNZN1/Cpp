@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/15 17:05:36 by pniezen       #+#    #+#                 */
-/*   Updated: 2023/05/18 15:53:49 by pniezen       ########   odam.nl         */
+/*   Updated: 2023/05/23 10:21:49 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ clock_t	PmergeMe::sortDeque(int low, int high)
 	const clock_t	start = clock();
 	int	mid;
 
-	// if (low < high)
 	if (high - low > 5)
 	{
 		mid = (low + high) / 2;
@@ -124,7 +123,6 @@ clock_t	PmergeMe::sortVector(int low, int high)
 	const clock_t	start = clock();
 	int	mid;
 
-	// if (low < high)
 	if (high - low > 5)
 	{
 		mid = (low + high) / 2;
@@ -206,10 +204,10 @@ void	PmergeMe::parseArgs(char **argv)
 		long	num;
 		for (int j = 0; argv[i][j]; j++)
 		{
-			if (!std::isdigit(argv[i][j]))
-				throw(std::invalid_argument("Not a number"));
-			else if (j >= 10)
+			if (argv[i][j] == '-')
 				throw(std::invalid_argument("Number must be a positive number"));
+			else if (!std::isdigit(argv[i][j]))
+				throw(std::invalid_argument("Not a number"));
 		}
 
 		std::stringstream	ss(argv[i]);
